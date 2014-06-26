@@ -7,9 +7,11 @@ include WEBrick
 
 puts 'running test.rb'.cyan
 
+here = File.dirname(__FILE__)
+
 server = HTTPServer.new(
   Port: 8080,
-  DocumentRoot: File.join(Dir::pwd, 'public_html')
+  DocumentRoot: File.join(here, 'public_html')
 )
 trap('INT') do
   server.shutdown
